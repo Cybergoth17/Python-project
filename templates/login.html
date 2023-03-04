@@ -7,22 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Main page</title>
+    <title>Register</title>
 </head>
 <body>
-    {% if user.is_authenticated%}
-    <h1>welcome,{{user.username}}</h1>
-    {% endif %}
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
     <center><h1>input your text below</h1></center>
-    <form action="counter" method="POST">
+    <form action="login" method="POST">
         {% csrf_token %}
-        <textarea name="text" rows="25" cols="100"></textarea> <br>
+        <p>Username:</p> <br>
+        <input type="text" name="username">
+        <br> <p>Password:</p> <br>
+        <input type="password" name="password">
+        <br> <br>
         <input type="submit">
     </form>
-    <center><h6>
-        id: {{feature.id}}
-        <br> name: {{feature.name}}
-        <br> detail: {{feature.details}}
-    </h6></center>
 </body>
 </html>

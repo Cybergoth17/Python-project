@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+    <center><h1>input your text below</h1></center>
+    <form action="register" method="POST">
+        {% csrf_token %}
+        <p>Username:</p> <br>
+        <input type="text" name="username">
+        <br> <p>Email:</p> <br>
+        <input type="text" name="email">
+        <br> <p>Password:</p> <br>
+        <input type="password" name="password">
+        <br> <p>Repeat Password:</p> <br>
+        <input type="password" name="password1">
+         <br> <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
