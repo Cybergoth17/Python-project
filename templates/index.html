@@ -1,12 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Main page</title>
 </head>
 <body>
-    <center><h1>Welcome, {{name}}</h1></center>
+    <center><h1>input your text below</h1></center>
+    <form action="counter" method="POST">
+        {% csrf_token %}
+        <textarea name="text" rows="25" cols="100"></textarea> <br>
+        <input type="submit">
+    </form>
+    <center><h6>
+        id: {{feature.id}}
+        <br> name: {{feature.name}}
+        <br> detail: {{feature.details}}
+    </h6></center>
 </body>
 </html>
